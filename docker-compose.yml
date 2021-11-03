@@ -1,8 +1,8 @@
 version: '3'
 services:
   db:
+    container_name: 
     build: mysql/
-    #image: testing-mysql
     volumes:
       - testing-mysql-data:/var/lib/mysql
       - testing-mysql:/var/run/mysqld
@@ -17,8 +17,7 @@ services:
     build: php-fpm/
 
   wordpress:
-    build: wordpress
-    #image: testing-wordpress
+    build: wordpress/
     volumes:
       - testing-wp:/var/www/html
       - testing-mysql:/var/run/mysqld
@@ -38,8 +37,7 @@ services:
     restart: always
 
   pma:
-    build: phpmyadmin
-    #image: testing-pma
+    build: phpmyadmin/
     volumes:
       - testing-pma:/var/www/pma
       - testing-shared:/shared
@@ -50,8 +48,7 @@ services:
       - db:db
 
   webserver:
-    build: nginx
-    #image: testing-nginx
+    build: nginx/
     volumes:
       - ./data/nginx:/etc/nginx/conf.d
       - testing-wp:/var/www/html

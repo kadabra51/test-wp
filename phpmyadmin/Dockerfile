@@ -1,4 +1,4 @@
-FROM testing-php-fpm:latest
+FROM test-wp_testing-php-fpm:latest
 
 # Install dependencies
 RUN set -ex; \
